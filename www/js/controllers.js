@@ -4,7 +4,7 @@ angular.module('icoming.controllers', [])
   /*TODO*/
   $scope.test=function(){
     $ionicPopup.alert({
-                title: 'Anthooooo',
+                title: 'Anthooooo???',
                 okType: 'button-balanced'
             });
   }
