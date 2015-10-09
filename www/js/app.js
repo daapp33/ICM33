@@ -5,6 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+
 angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services'])
 
 .run(function($ionicPlatform) {
@@ -23,8 +24,7 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services'])
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicMaterialConfigProvider) {
-    $ionicMaterialConfigProvider.enableForAllPlatforms();
+.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/home',
