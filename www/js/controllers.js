@@ -4,8 +4,9 @@ angular.module('icoming.controllers', [])
     /*TODO*/
     $scope.test = function() {
         $ionicPopup.alert({
-            title: 'Anthooooo???',
+            title: 'Mettre en place le Scroll en bas de la page',
             okType: 'button-balanced'
         });
     }
+
 });

@@ -1,16 +1,71 @@
+<!-- Header -->
+<ion-header-bar class="bar-balanced">
+    <h1 class="title">IComing !</h1>
+</ion-header-bar>
+<!-- Page 1 : page principale -->
 <ion-view view-title="JARRIVE">
     <ion-content class="padding">
-        Anthooooooooooooooooo!!!!!
-        <i class="ion-close" ng-click="test()"></i>
-        <p>
-            <button style="background-color:red" class="button button-balanced icon ion-plus button-icon"></button>
-        </p>
-        <p>
-            <button class="button button-balanced">button-balanced</button>
-            <button class="button button-balanced" disabled>button-balanced</button>
-        </p>
+        <div style="margin-top:50%;">
+            <center>
+                <i class="ion-ios-plus-outline" style="font-size:10em;color:green" data-pack="ios" data-tags="add, include, new, invite, +" ng-click="test()"></i>
+            </center>
+        </div>
+
+		<!-- Page 1 nouvelle adresse : Choisir un contact -->
+    	<div name="AjoutContact" id="AjoutContact" class="item item-divider" style="margin-top:100%;">
+			Choisissez un contact
+		</div>
+		<div class="list">
+			<div class="item">
+				Contact 1
+			</div>
+			<div class="item">
+				Contact 2
+			</div>
+		</div><br/>
+
+        <!-- Page 2 nouvelle adresse : Choisir une adresse -->
+    	<div class="item item-divider">
+			Adresse postale du contact
+		</div>
         <label class="item item-input">
             <input type="text" g-places-autocomplete ng-model="myScopeVar" placeholder="Adresse">
-        </label>
+        </label><br/>
+
+        <!-- Page 3 nouvelle adresse : Choisir un moyen de transport -->
+        <div class="list">
+        	<div class="item item-divider">
+				Moyen de transport
+			 </div>
+            <label class="item item-radio">
+                <input type="radio" name="group">
+                <div class="item-content">
+                    <i class="ion-android-car" style="font-size:2em;"></i>
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+            <label class="item item-radio">
+                <input type="radio" name="group">
+                <div class="item-content">
+                    <span class="step size-48">
+				     	<i class="ion-android-bicycle" style="font-size:2em;"></i>
+					</span>
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+            <label class="item item-radio">
+                <input type="radio" name="group">
+                <div class="item-content">
+                    <i class="ion-android-bus" style="font-size:2em;"></i>
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+        </div><br/>
+        <div style="text-align:center;">
+	        <button class="button button-balanced">
+				Ajouter le contact
+			</button>
+		</div>
+
     </ion-content>
 </ion-view>
