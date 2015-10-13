@@ -6,7 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 
-angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', 'google.places'])
+angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', 'google.places', 'LocalStorageModule'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -24,7 +24,8 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
+    localStorageServiceProvider.setPrefix('lsICM');
     $stateProvider
         .state('home', {
             url: '/home',
@@ -32,7 +33,6 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
             templateUrl: "templates/home.html",
             controller: "HomeCtrl"
         })
-
     $urlRouterProvider.otherwise('/home');
 
 });
