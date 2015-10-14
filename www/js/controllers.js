@@ -3,7 +3,6 @@ angular.module('icoming.controllers', [])
 .controller('HomeCtrl', function($scope, $ionicPopup, localStorageService) {
     // On va chercher les adrseses en LS
     $scope.adrList = localStorageService.get("adrList");
-    $scope.listCanSwipe = true;
     if (!$scope.adrList) {
         $scope.adrList = [];
     }

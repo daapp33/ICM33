@@ -30,7 +30,7 @@
         <label class="item item-input">
             <input type="text" g-places-autocomplete ng-model="inputAdr" placeholder="Adresse" ng-change="addAdr(inputAdr)">
         </label>
-        <ion-list can-swipe="listCanSwipe">
+        <ion-list>
             <ion-item ng-repeat="adr in adrList">
                 <h2>{{adr}}</h2>
                 <ion-option-button class="button-assertive" ng-click="deleteAdr($index)">

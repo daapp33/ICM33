@@ -21,6 +21,7 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
             // org.apache.cordova.statusbar required
             StatusBar.styleLightContent();
         }
+        alert('contacts : ' + navigator.contacts);
     });
 })
 
