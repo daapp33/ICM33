@@ -33,6 +33,27 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
             templateUrl: "templates/home.html",
             controller: "HomeCtrl"
         })
+     $stateProvider
+        .state('ajoutContact', {
+            url: '/home',
+            cache: false,
+            templateUrl: "templates/ajoutContact.html",
+            controller: "ajoutContactCtrl"
+        })
+     $stateProvider
+        .state('ajoutAdresse', {
+            url: '/home',
+            cache: false,
+            templateUrl: "templates/ajoutAdresse.html",
+            controller: "ajoutAdresseCtrl"
+        })
+     $stateProvider
+        .state('ajoutMoyenTransport', {
+            url: '/home',
+            cache: false,
+            templateUrl: "templates/ajoutMoyenTransport.html",
+            controller: "ajoutMoyenTransportCtrl"
+        })
     $urlRouterProvider.otherwise('/home');
 
 });

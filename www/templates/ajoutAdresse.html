@@ -1,0 +1,23 @@
+<!-- Header -->
+<ion-header-bar class="bar-balanced">
+    <h1 class="title">Ajouter une adresse</h1>
+</ion-header-bar>
+<!-- Page 2 nouvelle adresse : Choisir une adresse -->
+<div class="item item-divider">
+    Adresse postale du contact
+</div>
+<label class="item item-input">
+    <input type="text" g-places-autocomplete ng-model="inputAdr" placeholder="Adresse" ng-change="addAdr(inputAdr)">
+</label>
+<ion-list can-swipe="listCanSwipe">
+    <ion-item ng-repeat="adr in adrList">
+        <h2>{{adr}}</h2>
+        <ion-option-button class="button-assertive" ng-click="deleteAdr($index)">
+            Delete
+        </ion-option-button>
+    </ion-item>
+</ion-list>
+<br/>
+<ion-footer-bar class="bar-balanced" ui-sref="ajoutMoyenTransport">
+    <h1 class="title">Suivant!</h1>
+</ion-footer-bar>
