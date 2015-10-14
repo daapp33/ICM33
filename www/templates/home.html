@@ -15,11 +15,8 @@
             Choisissez un contact
         </div>
         <div class="list">
-            <div class="item">
-                Contact 1
-            </div>
-            <div class="item">
-                Contact 2
+            <div class="item" ng-repeat="contact in contactList">
+                {{contact.name.formatted}} / {{contact.name.familyName}} / {{contact.name.givenName}}
             </div>
         </div>
         <br/>

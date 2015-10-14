@@ -1,6 +1,6 @@
 angular.module('icoming.controllers', [])
 
-.controller('HomeCtrl', function($scope, $ionicPopup, localStorageService) {
+.controller('HomeCtrl', function($scope, $ionicPopup, localStorageService, $timeout) {
     // On va chercher les adrseses en LS
     $scope.adrList = localStorageService.get("adrList");
     if (!$scope.adrList) {
@@ -25,5 +25,33 @@ angular.module('icoming.controllers', [])
         $scope.adrList.splice(index, 1);
         localStorageService.set("adrList", $scope.adrList);
     }
+
+    function onSuccess(contacts) {
+        $scope.contactList = contacts;
+        /*for (var i = 0; i < contacts.length; i++) {
+            alert("Formatted: " + contacts[i].name.formatted + "\n" +
+                "Family Name: " + contacts[i].name.familyName + "\n" +
+                "Given Name: " + contacts[i].name.givenName + "\n" +
+                "Middle Name: " + contacts[i].name.middleName + "\n" +
+                "Suffix: " + contacts[i].name.honorificSuffix + "\n" +
+                "Prefix: " + contacts[i].name.honorificSuffix);
+        }*/
+    };
+
+    function onError(contactError) {
+        alert('onError!');
+    };
+
+    $timeout(function() {
+        if (navigator.contacts.length!=3) {
+            var options = new ContactFindOptions();
+            options.filter = "";
+            filter = ["displayName", "name"];
+            navigator.contacts.find(filter, onSuccess, onError, options);
+        } else {
+            $scope.contactList = navigator.contacts;
+        }
+    }, 1500);
+
 
 });

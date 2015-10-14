@@ -21,7 +21,13 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
             // org.apache.cordova.statusbar required
             StatusBar.styleLightContent();
         }
-        alert('contacts : ' + navigator.contacts);
+        console.log('navigator.contacts');
+        if (!navigator.contacts) {
+            navigator.contacts = [{"name":{"formatted":"anthoooooo","familyName":"aumettre","givenName":"pizza"}},{"name":{"formatted":"pcha","familyName":"charles","givenName":"pedro"}},{"name":{"formatted":"dfou","familyName":"gosu","givenName":"gamer"}}];
+            //navigator.contacts[0] = '{"name":{"formatted":"anthoooooo","familyName":"aumettre","givenName":"pizza"}}';
+            //navigator.contacts[1] = '{"name":{"formatted":"pcha","familyName":"charles","givenName":"pedro"}}';
+            //navigator.contacts[2] = '{"name":{"formatted":"dfou","familyName":"gosu","givenName":"gamer"}}';
+        }
     });
 })
 
