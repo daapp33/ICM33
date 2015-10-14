@@ -33,6 +33,8 @@
     <gap:plugin name="com.adobe.plugins.gaplugin" version="2.4.0" />
     <gap:plugin name="com.ionic.keyboard" version="1.0.3" />
     <gap:plugin name="org.apache.cordova.contacts" version="0.2.13" />
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
 
     <icon gap:platform="android" src="resources/android/icon/drawable-ldpi-icon.png" gap:qualifier="ldpi" />
     <icon gap:platform="android" src="resources/android/icon/drawable-mdpi-icon.png" gap:qualifier="mdpi" />

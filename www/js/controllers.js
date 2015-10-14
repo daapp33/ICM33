@@ -28,14 +28,14 @@ angular.module('icoming.controllers', [])
 
     function onSuccess(contacts) {
         $scope.contactList = contacts;
-        /*for (var i = 0; i < contacts.length; i++) {
+        for (var i = 0; i < contacts.length; i++) {
             alert("Formatted: " + contacts[i].name.formatted + "\n" +
                 "Family Name: " + contacts[i].name.familyName + "\n" +
                 "Given Name: " + contacts[i].name.givenName + "\n" +
                 "Middle Name: " + contacts[i].name.middleName + "\n" +
                 "Suffix: " + contacts[i].name.honorificSuffix + "\n" +
                 "Prefix: " + contacts[i].name.honorificSuffix);
-        }*/
+        }
     };
 
     function onError(contactError) {
@@ -44,6 +44,7 @@ angular.module('icoming.controllers', [])
 
     $timeout(function() {
         if (navigator.contacts.length!=3) {
+            alert('natif');
             var options = new ContactFindOptions();
             options.filter = "";
             filter = ["displayName", "name"];
