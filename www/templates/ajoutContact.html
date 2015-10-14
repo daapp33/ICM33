@@ -8,14 +8,11 @@
     Choisissez un contact
 </div>
 <div class="list">
-    <div class="item">
-        Contact 1
-    </div>
-    <div class="item">
-        Contact 2
+    <div class="item" ng-repeat="contact in contactList">
+        {{contact.name.formatted}} / {{contact.name.familyName}} / {{contact.name.givenName}}
     </div>
 </div>
 <br/>
 <ion-footer-bar class="bar-balanced" ui-sref="ajoutAdresse">
-    <h1 class="title">Suivant!</h1>
+    <h1 class="title">Suivant</h1>
 </ion-footer-bar>
