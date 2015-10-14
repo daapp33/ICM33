@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<widget id="com.ouatoodoo.pingalant" version="1.4.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>Le Pin Galant</name>
+<widget id="com.sogapp.icoming" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ICOMING</name>
     <description>
     </description>
-    <author email="damien.fourcade@gmail.com" href="">
-        SoGapp
+    <author email="daapp33@gmail.com" href="">
+        daapp33
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
@@ -26,16 +26,14 @@
     <!-- Do not auto hide splash on Android -->
     <preference name="SplashScreenDelay" value="10000" />
     <preference name="target-device" value="handset" />
-    <gap:plugin name="cordova-plugin-device" source="npm" version="1.0.1" />
     <gap:plugin name="cordova-plugin-splashscreen" source="npm" version="2.1.0" />
     <gap:plugin name="cordova-plugin-inappbrowser" source="npm" version="1.0.1" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0" />
-    <gap:plugin name='org.crosswalk.engine' version='1.3.0' source='pgb' />
-    <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.4.0" />
     <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
     <gap:plugin name="com.adobe.plugins.gaplugin" version="2.4.0" />
-    <gap:plugin name="nl.x-services.plugins.calendar" version="4.2.4" />
     <gap:plugin name="com.ionic.keyboard" version="1.0.3" />
+    <gap:plugin name="org.apache.cordova.contacts" version="0.2.13" />
+
     <icon gap:platform="android" src="resources/android/icon/drawable-ldpi-icon.png" gap:qualifier="ldpi" />
     <icon gap:platform="android" src="resources/android/icon/drawable-mdpi-icon.png" gap:qualifier="mdpi" />
     <icon gap:platform="android" src="resources/android/icon/drawable-hdpi-icon.png" gap:qualifier="hdpi" />
