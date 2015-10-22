@@ -8,7 +8,7 @@
 
 angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', 'google.places', 'LocalStorageModule'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -25,6 +25,7 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
         function onSuccess(contacts) {
             //console.log(contacts);
             alert('Found ' + JSON.stringify(contacts));
+            $rootScope.contacts=contacts;
         };
 
         function onError(contactError) {
@@ -32,8 +33,10 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
         };
 
         if (!navigator.contacts) {
-            contact = { // We will use it to save a contact
+            contact = [{ // We will use it to save a contact
                 "displayName": "Gajotres",
+                "id":"203",
+                "rawId":"215",
                 "name": {
                     "givenName": "Dragan",
                     "familyName": "Gaic",
@@ -74,18 +77,18 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
                 }],
                 "categories": null,
                 "urls": null
-            };
+            },{"displayName": "Boris"},{"displayName": "Pedro"},{"displayName": "Sancho"}];
             onSuccess(contact);
         } else {
-            navigator.contacts.pickContact(function(contact) {
+            /*navigator.contacts.pickContact(function(contact) {
                 console.log('The following contact has been selected:' + JSON.stringify(contact));
             }, function(err) {
                 console.log('Error: ' + err);
-            });
+            });*/
 
             // find all contacts with 'Bob' in any name field
             var options = new ContactFindOptions();
-            options.filter = "Aaum";
+            options.filter = "";
             options.multiple = true;
             //options.desiredFields = [navigator.contacts.fieldType.id];
             options.hasPhoneNumber = true;
