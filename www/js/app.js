@@ -15,36 +15,76 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);
-
         }
         if (window.StatusBar) {
             // org.apache.cordova.statusbar required
             StatusBar.styleLightContent();
         }
-        console.log('navigator.contacts');
+        var contacts = {}; // We will use it to load contacts   
+
+        function onSuccess(contacts) {
+            //console.log(contacts);
+            alert('Found ' + JSON.stringify(contacts));
+        };
+
+        function onError(contactError) {
+            alert('onError!');
+        };
+
         if (!navigator.contacts) {
-            navigator.contacts = [{
+            contact = { // We will use it to save a contact
+                "displayName": "Gajotres",
                 "name": {
-                    "formatted": "anthoooooo",
-                    "familyName": "aumettre",
-                    "givenName": "pizza"
-                }
-            }, {
-                "name": {
-                    "formatted": "pcha",
-                    "familyName": "charles",
-                    "givenName": "pedro"
-                }
-            }, {
-                "name": {
-                    "formatted": "dfou",
-                    "familyName": "gosu",
-                    "givenName": "gamer"
-                }
-            }];
-            //navigator.contacts[0] = '{"name":{"formatted":"anthoooooo","familyName":"aumettre","givenName":"pizza"}}';
-            //navigator.contacts[1] = '{"name":{"formatted":"pcha","familyName":"charles","givenName":"pedro"}}';
-            //navigator.contacts[2] = '{"name":{"formatted":"dfou","familyName":"gosu","givenName":"gamer"}}';
+                    "givenName": "Dragan",
+                    "familyName": "Gaic",
+                    "formatted": "Dragan Gaic"
+                },
+                "nickname": 'Gajotres',
+                "phoneNumbers": [{
+                    "value": "+385959052082",
+                    "type": "mobile"
+                }, {
+                    "value": "+385914600731",
+                    "type": "phone"
+                }],
+                "emails": [{
+                    "value": "dragan.gaic@gmail.com",
+                    "type": "home"
+                }],
+                "addresses": [{
+                    "type": "home",
+                    "formatted": "Some Address",
+                    "streetAddress": "Some Address",
+                    "locality": "Zagreb",
+                    "region": "Zagreb",
+                    "postalCode": "10000",
+                    "country": "Croatia"
+                }],
+                "ims": null,
+                "organizations": [{
+                    "type": "Company",
+                    "name": "Generali",
+                    "department": "IT",
+                    "title": "Senior Java Developer"
+                }],
+                "birthday": Date("08/01/1980"),
+                "note": "",
+                "photos": [{
+                    "value": "https://pbs.twimg.com/profile_images/570169987914924032/pRisI2wr_400x400.jpeg"
+                }],
+                "categories": null,
+                "urls": null
+            };
+            onSuccess(contact);
+        } else {
+            // find all contacts with 'Bob' in any name field
+            var options = new ContactFindOptions();
+            //options.filter = "Bob";
+            options.multiple = true;
+            options.desiredFields = [navigator.contacts.fieldType.id];
+            options.hasPhoneNumber = true;
+            var fields = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
+            navigator.contacts.find(fields, onSuccess, onError, options);
         }
     });
 })

@@ -118,7 +118,7 @@
 
 
 
-
+/*
 
 function onSuccess(contacts) {
     $scope.contactList = contacts;
@@ -146,4 +146,4 @@ $timeout(function() {
     } else {
         $scope.contactList = navigator.contacts;
     }
-}, 1500);
+}, 1500);*/
