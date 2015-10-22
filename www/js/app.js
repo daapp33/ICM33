@@ -87,9 +87,9 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
             });*/
 
             var options = new ContactFindOptions();
-            options.filter = "a";
+            options.filter = "Aaum";
             options.multiple = true;
-            options.desiredFields = [navigator.contacts.fieldType.id];
+            //options.desiredFields = [navigator.contacts.fieldType.id];
             options.hasPhoneNumber = true;
             var fields = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
             navigator.contacts.find(fields, onSuccess, onError, options);
