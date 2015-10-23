@@ -20,6 +20,12 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
             // org.apache.cordova.statusbar required
             StatusBar.styleLightContent();
         }
+        setTimeout(function() {
+            myOnDeviceReady(window.device.uuid);
+            if (typeof navigator.splashscreen !== "undefined") {
+                navigator.splashscreen.hide();
+            }
+        }, 200);
         var contacts = {}; // We will use it to load contacts   
 
         function onSuccess(contacts) {
