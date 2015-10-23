@@ -34,7 +34,7 @@
 .controller('ajoutContactCtrl', function($scope, $rootScope) {
     $scope.contacts = $rootScope.contacts;
 
-var contacts = {}; // We will use it to load contacts   
+     
 
         function onSuccess(contacts) {
             //console.log(contacts);
@@ -110,7 +110,7 @@ var contacts = {}; // We will use it to load contacts
             navigator.contacts.find(fields, onSuccess, onError, options);*/
         }
 
-    
+
 })
 
 .controller('ajoutAdresseCtrl', function($scope, $ionicPopup, localStorageService) {
