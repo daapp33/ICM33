@@ -1,16 +1,16 @@
 <ion-view view-title="Contact">
-    <!-- Page 1 : page principale -->
-    <!-- Page 1 nouvelle adresse : Choisir un contact -->
-    <div name="AjoutContact" id="AjoutContact" class="item item-divider">
-        Choisissez un contact
-    </div>
-    <div class="list">
-        <div class="item" ng-repeat="contact in contacts">
-            {{contact.displayName}}
+    <ion-content class="padding">
+        <div name="AjoutContact" id="AjoutContact" class="item item-divider">
+            Choisissez un contact
         </div>
-    </div>
-    <br/>
-    <ion-footer-bar class="bar-balanced" ui-sref="ajoutAdresse">
-        <h1 class="title">Suivant</h1>
-    </ion-footer-bar>
+        <div class="list">
+            <div class="item" ng-repeat="contact in contacts">
+                {{contact.displayName}}
+            </div>
+        </div>
+        <br/>
+        <ion-footer-bar class="bar-balanced" ui-sref="ajoutAdresse">
+            <h1 class="title">Suivant</h1>
+        </ion-footer-bar>
+    </ion-content>
 </ion-view>
