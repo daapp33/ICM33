@@ -24,7 +24,7 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
 
         function onSuccess(contacts) {
             //console.log(contacts);
-            alert('Found ' + JSON.stringify(contacts));
+            //alert('Found ' + JSON.stringify(contacts));
             $rootScope.contacts=contacts;
         };
 
@@ -32,7 +32,7 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
             alert('onError!');
         };
 
-        if (!navigator.contacts) {
+        //if (!navigator.contacts) {
             contact = [{ // We will use it to save a contact
                 "displayName": "Gajotres",
                 "id":"203",
@@ -79,21 +79,21 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
                 "urls": null
             },{"displayName": "Boris"},{"displayName": "Pedro"},{"displayName": "Sancho"}];
             onSuccess(contact);
-        } else {
+        //} else {
             /*navigator.contacts.pickContact(function(contact) {
                 console.log('The following contact has been selected:' + JSON.stringify(contact));
             }, function(err) {
                 console.log('Error: ' + err);
             });*/
 
-            var options = new ContactFindOptions();
+            /*var options = new ContactFindOptions();
             options.filter = "Aaum";
             options.multiple = true;
             //options.desiredFields = [navigator.contacts.fieldType.id];
             options.hasPhoneNumber = true;
             var fields = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
-            navigator.contacts.find(fields, onSuccess, onError, options);
-        }
+            navigator.contacts.find(fields, onSuccess, onError, options);*/
+        //}
     });
 })
 
