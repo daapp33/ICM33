@@ -21,7 +21,6 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
             StatusBar.styleLightContent();
         }
         setTimeout(function() {
-            myOnDeviceReady(window.device.uuid);
             if (typeof navigator.splashscreen !== "undefined") {
                 navigator.splashscreen.hide();
             }
