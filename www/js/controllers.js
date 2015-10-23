@@ -33,9 +33,8 @@
 
 .controller('ajoutContactCtrl', function($scope, $rootScope) {
     $scope.contacts = $rootScope.contacts;
-
+    $scope.oktest = 'coucou';
      
-
         function onSuccess(contacts) {
             //console.log(contacts);
             //alert('Found ' + JSON.stringify(contacts));
@@ -97,6 +96,7 @@
             navigator.contacts.pickContact(function(contact) {
                 $rootScope.contacts=contact;
                 console.log('The following contact has been selected:' + JSON.stringify(contact));
+                alert(contact);
             }, function(err) {
                 console.log('Error: ' + err);
             });
