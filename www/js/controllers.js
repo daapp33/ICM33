@@ -3,6 +3,8 @@
 .controller('HomeCtrl', function($scope, $ionicPopup, localStorageService, $timeout) {
     // On va chercher les adrseses en LS
     $scope.adrList = localStorageService.get("adrList");
+    // On cache le bouton de retour dans la bar de navigation
+    $scope.hideBackButton = true;
     if (!$scope.adrList) {
         $scope.adrList = [];
     }
