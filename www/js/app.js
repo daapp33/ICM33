@@ -16,8 +16,8 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);
         }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
+        if (typeof StatusBar !== "undefined") {
+            StatusBar.overlaysWebView(true);
             StatusBar.styleLightContent();
         }
         setTimeout(function() {
