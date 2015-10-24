@@ -96,7 +96,7 @@
             navigator.contacts.pickContact(function(contact) {
                 $rootScope.contacts=contact;
                 console.log('The following contact has been selected:' + JSON.stringify(contact));
-                alert(contact);
+                alert('contact est :' + contact.displayName);
             }, function(err) {
                 console.log('Error: ' + err);
             });
