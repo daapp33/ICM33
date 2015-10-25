@@ -116,6 +116,8 @@
             $scope.contacts = contact;
             console.log('The following contact has been selected:' + JSON.stringify(contact));
             alert('contact est :' + contact.name.formatted);
+            alert('contact est :' + contact.phoneNumbers.value);
+            onSuccess(contact);
         }, function(err) {
             console.log('Error: ' + err);
             alert('point2');
