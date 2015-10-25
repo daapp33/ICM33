@@ -1,7 +1,11 @@
 <ion-view view-title="Contact">
     <ion-content class="padding">
-        <div name="AjoutContact" id="AjoutContact" class="item item-divider">
-            Choisissez un contact
+        <div name="AjoutContact" id="AjoutContact" class="item item-divider" style="width:100%;">
+            <div style="text-align:left;width:90%;float:left;">
+             Contacts</div>
+            <div style="text-align:right;;width:10%;">
+                <i class="ion-ios-plus-outline" style="text-align:right;" data-pack="ios" ng-click="addPickContact()"></i>
+            </div>
         </div>
         <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
             <ion-item ng-repeat="contact in contacts" class="item" href="alert('coucou');">
