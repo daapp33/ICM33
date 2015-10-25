@@ -48,6 +48,7 @@
         alert('pointOnSuccess');
         $rootScope.contacts = contacts;
         $scope.contacts = contacts;
+        $scope.testcontacts = contacts;
     };
 
     function onError(contactError) {
@@ -116,7 +117,8 @@
             $scope.contacts = contact;
             console.log('The following contact has been selected:' + JSON.stringify(contact));
             alert('contact est :' + contact.name.formatted);
-            alert('contact est :' + contact.phoneNumbers.value);
+            alert('contact est :' + JSON.stringify(contact));
+            alert('ok');
             onSuccess(contact);
         }, function(err) {
             console.log('Error: ' + err);
