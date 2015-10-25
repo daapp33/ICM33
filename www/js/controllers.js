@@ -34,6 +34,7 @@
     $scope.contacts = $rootScope.contacts;
     $scope.oktest = 'coucou';
     $scope.shouldShowDelete = true;
+    $scope.testcontacts = '';
 
     $scope.onItemDelete = function(item) {
         $scope.contacts.splice($scope.contacts.indexOf(item), 1);
@@ -48,7 +49,6 @@
         alert('pointOnSuccess');
         $rootScope.contacts = contacts;
         $scope.contacts = contacts;
-        $scope.testcontacts = contacts;
     };
 
     function onError(contactError) {
@@ -119,6 +119,7 @@
             alert('contact est :' + contact.name.formatted);
             alert('contact est :' + JSON.stringify(contact));
             alert('ok');
+            $scope.testcontacts = contact;
             onSuccess(contact);
         }, function(err) {
             console.log('Error: ' + err);
