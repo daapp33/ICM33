@@ -3,10 +3,27 @@
 .controller('HomeCtrl', function($scope, $ionicPopup, localStorageService, $timeout) {
     // On va chercher les adrseses en LS
     $scope.adrList = localStorageService.get("adrList");
+    $scope.userList = localStorageService.get("userList");
+    //Bouchons Users
+    users = [{
+            "nom": "Damien",
+            "diminutif": "DF",
+            "adresseLieu": "Travail",
+            "moyenTransport": "bus"
+        }, {
+            "nom": "Antho",
+            "diminutif": "AA",
+            "adresseLieu": "Travail",
+            "moyenTransport": "velo"
+        }];
+
     // On cache le bouton de retour dans la bar de navigation
     $scope.hideBackButton = true;
     if (!$scope.adrList) {
         $scope.adrList = [];
+    }
+    if (!$scope.userList) {
+        $scope.userList = users;
     }
     /*TODO*/
     $scope.test = function() {
@@ -128,8 +145,8 @@
             $rootScope.contacts = contact;
             $scope.contacts = $scope.contacts.concat(contact);
             //$scope.contacts = contact;
-            console.log('The following contact has been selected:' + JSON.stringify(contact));
-            alert('contact est :' + contact.name.formatted);
+            //console.log('The following contact has been selected:' + JSON.stringify(contact));
+            //alert('contact est :' + contact.name.formatted);
             //$scope.testcontacts = JSON.stringify(contact);
             //onSuccess(contact);
             $route.reload();

@@ -1,43 +1,33 @@
 <!-- Page 1 : page principale -->
 <ion-view view-title="Icoming" hide-back-button="{{hideBackButton}}">
     <ion-content class="padding">
-        <!-- Bloc Contact-Envoi Icoming -->
-        <div style="width:100%;">
-            <div style="width:40%;float:left;">
-                <div class="circle-text">
-                    <div>DF</div>
+        <ion-list>
+            <ion-item ng-repeat="user in userList" style="padding:5px;border:none;">
+                <div style="width:100%;">
+                    <div style="width:40%;float:left;">
+                        <div class="circle-text">
+                            <div>{{user.diminutif}}</div>
+                        </div>
+                    </div>
+                    <div style="width:20%;float:left;text-align:left;">
+                        {{user.adresseLieu}}
+                        <br/>
+                        <ANY ng-switch="user.moyenTransport">
+                            <ANY ng-switch-when="bus"><i class="ion-android-bus" style="font-size:2em;"></i></ANY>
+                            <ANY ng-switch-when="velo"><i class="ion-android-bicycle" style="font-size:2em;"></i></ANY>
+                            <ANY ng-switch-default><i class="ion-android-car" style="font-size:2em;"></i></ANY>
+                        </ANY>
+                        <br/>
+                    </div>
+                    <div style="width:40%;float:left;text-align:right;">
+                        <i class="ion-android-checkbox" style="font-size:3em;color:green"></i>
+                    </div>
                 </div>
-            </div>
-            <div style="width:20%;float:left;text-align:left;">
-                Travail
                 <br/>
-                <i class="ion-android-car" style="font-size:2em;"></i>
-            </div>
-            <div style="width:40%;float:left;text-align:center;">
-                <i class="ion-android-checkbox" style="font-size:5em;color:green"></i>
-            </div>
-        </div>
-        <br/>
-        <br/>&nbsp;
-        <div>&nbsp;</div>
-        <div style="width:100%;">
-            <div style="width:40%;float:left;">
-                <div class="circle-text">
-                    <div>AA</div>
-                </div>
-            </div>
-            <div style="width:20%;float:left;text-align:left;">
-                Travail
-                <br/>
-                <i class="ion-android-car" style="font-size:2em;"></i>
-            </div>
-            <div style="width:40%;float:left;text-align:center;">
-                <i class="ion-android-checkbox" style="font-size:5em;color:green"></i>
-            </div>
-        </div>
-        <br/>
-        <br/>&nbsp;
-        <div>&nbsp;</div>
+                <br/>&nbsp;
+                <div>&nbsp;</div>
+            </ion-item>
+        </ion-list>
         <center>
             <div style="margin-top:10%;" ui-sref="ajoutContact">
                 <i class="ion-ios-plus-outline" style="font-size:10em;color:green;" data-pack="ios" data-tags="add, include, new, invite, +"></i></center>
