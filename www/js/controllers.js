@@ -119,7 +119,7 @@
             alert('contact est :' + contact.name.formatted);
             alert('contact est :' + JSON.stringify(contact));
             alert('ok');
-            $scope.testcontacts = contact;
+            $scope.testcontacts = JSON.stringify(contact);
             onSuccess(contact);
         }, function(err) {
             console.log('Error: ' + err);
