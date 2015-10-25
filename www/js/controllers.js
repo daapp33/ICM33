@@ -31,8 +31,8 @@
 })
 
 .controller('ajoutContactCtrl', function($scope, $rootScope) {
-     
-    if ($rootScope.contacts == null){
+
+    if ($rootScope.contacts == null) {
         $scope.contacts = [{
             "displayName": "Antho",
             "name": {
@@ -62,10 +62,10 @@
                 "type": "phone"
             }]
         }];
-    }else{
-         $scope.contacts = $rootScope.contacts;
+    } else {
+        $scope.contacts = $rootScope.contacts;
     }
-   
+
     $scope.oktest = 'coucou';
     $scope.shouldShowDelete = true;
     $scope.testcontacts = '';
@@ -181,13 +181,10 @@
         navigator.contacts.pickContact(function(contact) {
             alert('point1');
             $rootScope.contacts = contact;
-             $scope.contacts = $scope.contacts.concat(contact);
-            alert('point2');
-            $scope.contacttest2s = contact;
-            alert('point3');
+            $scope.contacts = $scope.contacts.concat(contact);
             //$scope.contacts = contact;
             console.log('The following contact has been selected:' + JSON.stringify(contact));
-            alert('contact est :' + contact.name.formatted);            
+            alert('contact est :' + contact.name.formatted);
             //$scope.testcontacts = JSON.stringify(contact);
             //onSuccess(contact);
         }, function(err) {
