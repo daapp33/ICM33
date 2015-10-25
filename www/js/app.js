@@ -50,14 +50,21 @@ angular.module('icoming', ['ionic', 'icoming.controllers', 'icoming.services', '
             url: '/home',
             cache: false,
             templateUrl: "templates/ajoutAdresse.html",
-            controller: "ajoutAdresseCtrl"
+            controller: "ajoutAdresseCtrl",
+            params: {
+                ncontact: null
+            }
         })
     $stateProvider
         .state('ajoutMoyenTransport', {
             url: '/home',
             cache: false,
             templateUrl: "templates/ajoutMoyenTransport.html",
-            controller: "ajoutMoyenTransportCtrl"
+            controller: "ajoutMoyenTransportCtrl",
+            params: {
+                ncontact: null,
+                nadresse: null
+            }
         })
     $urlRouterProvider.otherwise('/home');
 

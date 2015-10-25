@@ -1,21 +1,11 @@
 ﻿angular.module('icoming.controllers', [])
 
-.controller('HomeCtrl', function($scope, $ionicPopup, localStorageService, $timeout) {
+.controller('HomeCtrl', function($scope, $ionicPopup, userModele, localStorageService, $timeout) {
     // On va chercher les adrseses en LS
     $scope.adrList = localStorageService.get("adrList");
     $scope.userList = localStorageService.get("userList");
-    //Bouchons Users
-    users = [{
-            "nom": "Damien",
-            "diminutif": "DF",
-            "adresseLieu": "Travail",
-            "moyenTransport": "bus"
-        }, {
-            "nom": "Antho",
-            "diminutif": "AA",
-            "adresseLieu": "Travail",
-            "moyenTransport": "velo"
-        }];
+    //userModele.addUser("BB", "BB", "Travail", "velo");
+    //alert(JSON.stringify(userModele.getUsers()));
 
     // On cache le bouton de retour dans la bar de navigation
     $scope.hideBackButton = true;
@@ -23,14 +13,17 @@
         $scope.adrList = [];
     }
     if (!$scope.userList) {
-        $scope.userList = users;
+        $scope.userList = userModele.init();
     }
-    /*TODO*/
+
     $scope.test = function() {
-        $ionicPopup.alert({
-            title: 'Mettre en place le Scroll en bas de la page',
-            okType: 'button-balanced'
-        });
+        $scope.userList = userModele.addUser("BB", "BB", "Travail", "velo");
+        alert(JSON.stringify(userModele.getUsers()));
+    }
+
+    $scope.getuser = function() {
+        //alert(JSON.stringify(userModele.getUsers()));
+        alert(JSON.stringify($scope.userList));
     }
 
     $scope.addAdr = function(inputAdr) {
@@ -48,7 +41,6 @@
 })
 
 .controller('ajoutContactCtrl', function($scope, $rootScope) {
-
     if ($rootScope.contacts == null) {
         $scope.contacts = [{
             "displayName": "Antho",
@@ -83,7 +75,8 @@
         $scope.contacts = $rootScope.contacts;
     }
 
-    $scope.shouldShowDelete = true;
+    // Par défaut, on cache le bouton supprimer dans la liste des contacts
+    $scope.shouldShowDelete = false;
 
     $scope.onItemDelete = function(item) {
         $scope.contacts.splice($scope.contacts.indexOf(item), 1);
@@ -235,10 +228,11 @@
 
 })
 
-.controller('ajoutAdresseCtrl', function($scope, $ionicPopup, localStorageService) {
+.controller('ajoutAdresseCtrl', function($scope, $ionicPopup, $stateParams, localStorageService) {
     // On va chercher les adrseses en LS
     $scope.adrList = localStorageService.get("adrList");
     $scope.listCanSwipe = true;
+    $scope.newContact = $stateParams.ncontact;
     if (!$scope.adrList) {
         $scope.adrList = [];
     }
@@ -264,19 +258,30 @@
 
 })
 
-.controller('ajoutMoyenTransportCtrl', function($scope, $ionicPopup, localStorageService) {
+.controller('ajoutMoyenTransportCtrl', function($scope, $ionicPopup, userModele, $state, $stateParams, localStorageService) {
     // On va chercher les adrseses en LS
     $scope.adrList = localStorageService.get("adrList");
+    $scope.userList = localStorageService.get("userList");
     $scope.listCanSwipe = true;
+    $scope.newContact = $stateParams.ncontact;
+    $scope.newAdresse = $stateParams.nadresse;
     if (!$scope.adrList) {
         $scope.adrList = [];
     }
+    if (!$scope.userList) {
+        $scope.userList = [];
+    }
     /*TODO*/
-    $scope.test = function() {
-        $ionicPopup.alert({
-            title: 'Mettre en place le Scroll en bas de la page',
-            okType: 'button-balanced'
-        });
+    $scope.creerUser = function() {
+        newUser = $scope.newContact;
+        newUser = newUser.concat($scope.newAdresse);
+        $scope.userList = $scope.userList.concat(newUser);
+        //alert($scope.userList);
+        //userModele.addUser("BB", "BB", "Travail", "velo");
+        //userModele.test;
+        $scope.userList = userModele.addUser("CC", "BB", "Travail", "velo");
+        localStorageService.set("userList", $scope.userList);
+        $state.go('home');
     }
 
     $scope.addAdr = function(inputAdr) {
@@ -292,6 +297,8 @@
     }
 
 })
+
+
 
 
 

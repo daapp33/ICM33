@@ -5,7 +5,7 @@
                 Moyen de transport
             </div>
             <label class="item item-radio">
-                <input type="radio" name="group">
+                <input type="radio" name="group" checked>
                 <div class="item-content">
                     <i class="ion-android-car" style="font-size:2em;"></i>
                 </div>
@@ -28,8 +28,9 @@
                 <i class="radio-icon ion-checkmark"></i>
             </label>
         </div>
+        test : {{newContact}} test2 : {{newAdresse}}
     </ion-content>
-    <ion-footer-bar class="bar-balanced" ui-sref="home">
+    <ion-footer-bar class="bar-balanced" ng-click="creerUser()">
         <h1 class="title">Créer le contact</h1>
     </ion-footer-bar>
 </ion-view>

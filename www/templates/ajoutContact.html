@@ -1,29 +1,34 @@
 <ion-view view-title="Contact">
     <ion-content class="padding">
-        <div name="AjoutContact" id="AjoutContact" class="item item-divider" style="width:100%;">
-            <div style="text-align:left;width:90%;float:left;">
-                Contacts</div>
-            <div style="text-align:right;;width:10%;">
-                <i class="ion-ios-plus-outline" style="text-align:right;" data-pack="ios" ng-click="addPickContact()"></i>
+        <ion-header-bar class="bar-positive">
+            <div class="buttons">
+                <button class="button button-icon icon ion-ios-minus-outline" ng-click="shouldShowDelete = !shouldShowDelete;"></button>
             </div>
-        </div>
+            <h1 class="title">Mes contacts</h1>
+            <div class="buttons">
+                <button class="button button-icon icon ion-ios-plus-outline" ng-click="addPickContact()">
+                </button>
+            </div>
+        </ion-header-bar>
+        <br/>
+        <br/>
+        <br/>
         <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
-            <ion-item ng-repeat="contact in contacts" class="item" href="alert('coucou');">
+            <ion-item ng-repeat="contact in contacts" class="item" ui-sref="ajoutAdresse({ncontact:'{{contact}}'})">
                 <ion-delete-button class="ion-minus-circled" ng-click="contacts.splice($index, 1)">
                 </ion-delete-button>
                 {{contact.name.formatted}} - {{contact.phoneNumbers[0].value}}
             </ion-item>
         </ion-list>
         <br/>
-        <button class="button" ng-click="addPickContact()">Ajout un pickContact
-        </button>
-        <br/>
         <br/>
         <button class="button" ng-click="addContact()">Ajout deux contacts en dur
         </button>
         <br/>
     </ion-content>
+    <!--
     <ion-footer-bar class="bar-balanced" ui-sref="ajoutAdresse">
         <h1 class="title">Suivant</h1>
     </ion-footer-bar>
+-->
 </ion-view>

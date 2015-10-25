@@ -6,7 +6,7 @@
                 <div style="width:100%;">
                     <div style="width:40%;float:left;">
                         <div class="circle-text">
-                            <div>{{user.diminutif}}</div>
+                            <div>{{user.displayName}}</div>
                         </div>
                     </div>
                     <div style="width:20%;float:left;text-align:left;">
@@ -28,6 +28,10 @@
                 <div>&nbsp;</div>
             </ion-item>
         </ion-list>
+        <button class="button" ng-click="test()">Test
+        </button>
+        <button class="button" ng-click="getuser()">getUser
+        </button>
         <center>
             <div style="margin-top:10%;" ui-sref="ajoutContact">
                 <i class="ion-ios-plus-outline" style="font-size:10em;color:green;" data-pack="ios" data-tags="add, include, new, invite, +"></i></center>

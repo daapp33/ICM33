@@ -7,13 +7,14 @@
             <input type="text" g-places-autocomplete ng-model="inputAdr" placeholder="Adresse" ng-change="addAdr(inputAdr)">
         </label>
         <ion-list can-swipe="listCanSwipe">
-            <ion-item ng-repeat="adr in adrList">
+            <ion-item ng-repeat="adr in adrList" ui-sref="ajoutMoyenTransport({ncontact:'{{newContact}}',nadresse:'{{adr}}'})">
                 <h2>{{adr}}</h2>
                 <ion-option-button class="button-assertive" ng-click="deleteAdr($index)">
                     Delete
                 </ion-option-button>
             </ion-item>
         </ion-list>
+        test : {{newContact}}
     </ion-content>
     <ion-footer-bar class="bar-balanced" ui-sref="ajoutMoyenTransport">
         <h1 class="title">Suivant</h1>
