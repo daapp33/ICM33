@@ -66,9 +66,7 @@
         $scope.contacts = $rootScope.contacts;
     }
 
-    $scope.oktest = 'coucou';
     $scope.shouldShowDelete = true;
-    $scope.testcontacts = '';
 
     $scope.onItemDelete = function(item) {
         $scope.contacts.splice($scope.contacts.indexOf(item), 1);
@@ -122,6 +120,22 @@
         $scope.contacts = $scope.contacts.concat(contact2);
         //$scope.contacts = contact2;
         alert($scope.contacts);
+    };
+
+    $scope.addPickContact = function ajoutPickContact() {
+        navigator.contacts.pickContact(function(contact) {
+            alert('point1');
+            $rootScope.contacts = contact;
+            $scope.contacts = $scope.contacts.concat(contact);
+            //$scope.contacts = contact;
+            console.log('The following contact has been selected:' + JSON.stringify(contact));
+            alert('contact est :' + contact.name.formatted);
+            //$scope.testcontacts = JSON.stringify(contact);
+            //onSuccess(contact);
+            $route.reload();
+        }, function(err) {
+            console.log('Error: ' + err);
+        });
     };
 
     if (!navigator.contacts) {
