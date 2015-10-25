@@ -46,8 +46,8 @@
     function onSuccess(contacts) {
         //console.log(contacts);
         //alert('Found ' + JSON.stringify(contacts));
-        $rootScope.contacts = contacts;
-        $scope.contacts = contacts;
+        //$rootScope.contacts = contacts;
+        //$scope.contacts = contacts;
     };
 
     function onError(contactError) {
@@ -55,14 +55,14 @@
     };
 
     $scope.addContact = function ajoutContact() {
-    contact2 = [{
+        contact2 = [{
             "displayName": "Antho",
             "name": {
                 "givenName": "Dragan",
                 "familyName": "Gaic",
                 "formatted": "Antho A"
             },
-             "phoneNumbers": [{
+            "phoneNumbers": [{
                 "value": "+385959052082",
                 "type": "mobile"
             }, {
@@ -76,7 +76,7 @@
                 "familyName": "Gaic",
                 "formatted": "Damien F"
             },
-             "phoneNumbers": [{
+            "phoneNumbers": [{
                 "value": "+385959052082",
                 "type": "mobile"
             }, {
@@ -146,12 +146,12 @@
         navigator.contacts.pickContact(function(contact) {
             alert('point1');
             $rootScope.contacts = contact;
-            $scope.contacts = contact;
+            $scope.contacts = $scope.contacts.concat(JSON.stringify(contact);
+            //$scope.contacts = contact;
             console.log('The following contact has been selected:' + JSON.stringify(contact));
-            alert('contact est :' + contact.name.formatted);
-            $scope.contacts = $scope.contacts.concat(contact);
+            alert('contact est :' + contact.name.formatted);            
             //$scope.testcontacts = JSON.stringify(contact);
-            onSuccess(contact);
+            //onSuccess(contact);
         }, function(err) {
             console.log('Error: ' + err);
         });
