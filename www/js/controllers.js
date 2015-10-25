@@ -115,7 +115,7 @@
             $rootScope.contacts = contact;
             $scope.contacts = contact;
             console.log('The following contact has been selected:' + JSON.stringify(contact));
-            alert('contact est :' + JSON.stringify(contact));
+            alert('contact est :' + contact.name.formatted);
         }, function(err) {
             console.log('Error: ' + err);
             alert('point2');
