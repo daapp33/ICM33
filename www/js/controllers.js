@@ -31,7 +31,41 @@
 })
 
 .controller('ajoutContactCtrl', function($scope, $rootScope) {
-    $scope.contacts = $rootScope.contacts;
+     
+    if ($rootScope.contacts == null){
+        $scope.contacts = [{
+            "displayName": "Antho",
+            "name": {
+                "givenName": "Dragan",
+                "familyName": "Gaic",
+                "formatted": "Antho A"
+            },
+            "phoneNumbers": [{
+                "value": "+385959052082",
+                "type": "mobile"
+            }, {
+                "value": "+385914600731",
+                "type": "phone"
+            }]
+        }, {
+            "displayName": "Damien",
+            "name": {
+                "givenName": "Dragan",
+                "familyName": "Gaic",
+                "formatted": "Damien F"
+            },
+            "phoneNumbers": [{
+                "value": "+385959052082",
+                "type": "mobile"
+            }, {
+                "value": "+385914600731",
+                "type": "phone"
+            }]
+        }];
+    }else{
+         $scope.contacts = $rootScope.contacts;
+    }
+   
     $scope.oktest = 'coucou';
     $scope.shouldShowDelete = true;
     $scope.testcontacts = '';
@@ -86,6 +120,7 @@
         }];
 
         $scope.contacts = $scope.contacts.concat(contact2);
+        //$scope.contacts = contact2;
         alert($scope.contacts);
     };
 
@@ -146,8 +181,10 @@
         navigator.contacts.pickContact(function(contact) {
             alert('point1');
             $rootScope.contacts = contact;
-            $scope.contacttest2s = $contact;
+             $scope.contacts = $scope.contacts.concat(contact);
             alert('point2');
+            $scope.contacttest2s = contact;
+            alert('point3');
             //$scope.contacts = contact;
             console.log('The following contact has been selected:' + JSON.stringify(contact));
             alert('contact est :' + contact.name.formatted);            
