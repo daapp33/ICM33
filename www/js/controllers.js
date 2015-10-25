@@ -34,83 +34,98 @@
 .controller('ajoutContactCtrl', function($scope, $rootScope) {
     $scope.contacts = $rootScope.contacts;
     $scope.oktest = 'coucou';
-     
-        function onSuccess(contacts) {
-            //console.log(contacts);
-            //alert('Found ' + JSON.stringify(contacts));
-            $rootScope.contacts=contacts;
-            $scope.contacts = contacts;
-        };
+    $scope.shouldShowDelete = true;
+    alert('test');
 
-        function onError(contactError) {
-            alert('onError!');
-        };
+    $scope.onItemDelete = function(item) {
+        $scope.contacts.splice($scope.contacts.indexOf(item), 1);
+    };
+    $scope.edit = function(item) {
+    alert('Edit Item: ' + item.id);
+  };
 
-        if (!navigator.contacts) {
-            contact = [{ // We will use it to save a contact
-                "displayName": "Gajotres",
-                "id":"203",
-                "rawId":"215",
-                "name": {
-                    "givenName": "Dragan",
-                    "familyName": "Gaic",
-                    "formatted": "Dragan Gaic"
-                },
-                "nickname": 'Gajotres',
-                "phoneNumbers": [{
-                    "value": "+385959052082",
-                    "type": "mobile"
-                }, {
-                    "value": "+385914600731",
-                    "type": "phone"
-                }],
-                "emails": [{
-                    "value": "dragan.gaic@gmail.com",
-                    "type": "home"
-                }],
-                "addresses": [{
-                    "type": "home",
-                    "formatted": "Some Address",
-                    "streetAddress": "Some Address",
-                    "locality": "Zagreb",
-                    "region": "Zagreb",
-                    "postalCode": "10000",
-                    "country": "Croatia"
-                }],
-                "ims": null,
-                "organizations": [{
-                    "type": "Company",
-                    "name": "Generali",
-                    "department": "IT",
-                    "title": "Senior Java Developer"
-                }],
-                "birthday": Date("08/01/1980"),
-                "note": "",
-                "photos": [{
-                    "value": "https://pbs.twimg.com/profile_images/570169987914924032/pRisI2wr_400x400.jpeg"
-                }],
-                "categories": null,
-                "urls": null
-            },{"displayName": "Boris"},{"displayName": "Pedro"},{"displayName": "Sancho"}];
-            onSuccess(contact);
-        } else {
-            navigator.contacts.pickContact(function(contact) {
-                $rootScope.contacts=contact;
-                $scope.contacts = contact;
-                console.log('The following contact has been selected:' + JSON.stringify(contact));
-                alert('contact est :' + contact.displayName);
-            }, function(err) {
-                console.log('Error: ' + err);
-            });
+    function onSuccess(contacts) {
+        //console.log(contacts);
+        //alert('Found ' + JSON.stringify(contacts));
+        $rootScope.contacts = contacts;
+        $scope.contacts = contacts;
+    };
 
-            /*var options = new ContactFindOptions();
-            options.filter = "Aaum";
-            options.multiple = true;
-            //options.desiredFields = [navigator.contacts.fieldType.id];
-            options.hasPhoneNumber = true;
-            var fields = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
-            navigator.contacts.find(fields, onSuccess, onError, options);*/
-        }
+    function onError(contactError) {
+        alert('onError!');
+    };
+
+    if (!navigator.contacts) {
+        contact = [{ // We will use it to save a contact
+            "displayName": "Gajotres",
+            "id": "203",
+            "rawId": "215",
+            "name": {
+                "givenName": "Dragan",
+                "familyName": "Gaic",
+                "formatted": "Dragan Gaic"
+            },
+            "nickname": 'Gajotres',
+            "phoneNumbers": [{
+                "value": "+385959052082",
+                "type": "mobile"
+            }, {
+                "value": "+385914600731",
+                "type": "phone"
+            }],
+            "emails": [{
+                "value": "dragan.gaic@gmail.com",
+                "type": "home"
+            }],
+            "addresses": [{
+                "type": "home",
+                "formatted": "Some Address",
+                "streetAddress": "Some Address",
+                "locality": "Zagreb",
+                "region": "Zagreb",
+                "postalCode": "10000",
+                "country": "Croatia"
+            }],
+            "ims": null,
+            "organizations": [{
+                "type": "Company",
+                "name": "Generali",
+                "department": "IT",
+                "title": "Senior Java Developer"
+            }],
+            "birthday": Date("08/01/1980"),
+            "note": "",
+            "photos": [{
+                "value": "https://pbs.twimg.com/profile_images/570169987914924032/pRisI2wr_400x400.jpeg"
+            }],
+            "categories": null,
+            "urls": null
+        }, {
+            "displayName": "Boris"
+        }, {
+            "displayName": "Pedro"
+        }, {
+            "displayName": "Sancho"
+        }];
+        onSuccess(contact);
+    } else {
+        navigator.contacts.pickContact(function(contact) {
+            $rootScope.contacts = contact;
+            $scope.contacts = contact;
+            console.log('The following contact has been selected:' + JSON.stringify(contact));
+            alert('contact est :' + contact.displayName);
+        }, function(err) {
+            console.log('Error: ' + err);
+        });
+
+        /*var options = new ContactFindOptions();
+        options.filter = "Aaum";
+        options.multiple = true;
+        //options.desiredFields = [navigator.contacts.fieldType.id];
+        options.hasPhoneNumber = true;
+        var fields = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
+        navigator.contacts.find(fields, onSuccess, onError, options);*/
+    }
 
 
 })

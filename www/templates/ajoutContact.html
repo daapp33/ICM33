@@ -3,11 +3,14 @@
         <div name="AjoutContact" id="AjoutContact" class="item item-divider">
             Choisissez un contact
         </div>
-        <div class="list">
-            <div class="item" ng-repeat="contact in contacts">
+        <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
+            <ion-item ng-repeat="contact in contacts" class="item" href="alert('coucou');">
+                <ion-delete-button class="ion-minus-circled" ng-click="contacts.splice($index, 1)">
+                </ion-delete-button>
                 {{contact.displayName}}
-            </div>
-        </div>aa : bb : {{oktest}}
+            </ion-item>
+        </ion-list>
+        aa : bb : {{oktest}} {{contacts}}
         <br/>
     </ion-content>
     <ion-footer-bar class="bar-balanced" ui-sref="ajoutAdresse">
