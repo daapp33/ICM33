@@ -7,10 +7,19 @@
             <ion-item ng-repeat="contact in contacts" class="item" href="alert('coucou');">
                 <ion-delete-button class="ion-minus-circled" ng-click="contacts.splice($index, 1)">
                 </ion-delete-button>
-                {{contact.name.formatted}}
+                {{contact.displayName}} - {{contact.phoneNumbers[0].value}}
             </ion-item>
         </ion-list>
         aa : bb : {{oktest}} {{testcontacts}}
+        <button class="button" ng-click="addContact()">coucou
+        </button>
+        <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
+            <ion-item ng-repeat="contact in contacts" class="item" href="alert('coucou');">
+                <ion-delete-button class="ion-minus-circled" ng-click="contacts.splice($index, 1)">
+                </ion-delete-button>
+                {{contact.name.formatted}}
+            </ion-item>
+        </ion-list>
         <br/>
     </ion-content>
     <ion-footer-bar class="bar-balanced" ui-sref="ajoutAdresse">

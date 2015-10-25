@@ -46,7 +46,6 @@
     function onSuccess(contacts) {
         //console.log(contacts);
         //alert('Found ' + JSON.stringify(contacts));
-        alert('pointOnSuccess');
         $rootScope.contacts = contacts;
         $scope.contacts = contacts;
     };
@@ -55,8 +54,42 @@
         alert('onError!');
     };
 
+    $scope.addContact = function ajoutContact() {
+    contact2 = [{
+            "displayName": "Antho",
+            "name": {
+                "givenName": "Dragan",
+                "familyName": "Gaic",
+                "formatted": "Antho A"
+            },
+             "phoneNumbers": [{
+                "value": "+385959052082",
+                "type": "mobile"
+            }, {
+                "value": "+385914600731",
+                "type": "phone"
+            }]
+        }, {
+            "displayName": "Damien",
+            "name": {
+                "givenName": "Dragan",
+                "familyName": "Gaic",
+                "formatted": "Damien F"
+            },
+             "phoneNumbers": [{
+                "value": "+385959052082",
+                "type": "mobile"
+            }, {
+                "value": "+385914600731",
+                "type": "phone"
+            }]
+        }];
+
+        $scope.contacts = $scope.contacts.concat(contact2);
+        alert($scope.contacts);
+    };
+
     if (!navigator.contacts) {
-        alert('point5');
         contact = [{ // We will use it to save a contact
             "displayName": "Gajotres",
             "id": "203",
@@ -110,20 +143,18 @@
         }];
         onSuccess(contact);
     } else {
-        alert('point');
         navigator.contacts.pickContact(function(contact) {
             alert('point1');
             $rootScope.contacts = contact;
             $scope.contacts = contact;
-            console.log('The following contact has been selected:' + JSON.stringify(contact));
+            console.log('The following contact has
+ been selected:' + JSON.stringify(contact));
             alert('contact est :' + contact.name.formatted);
-            alert('contact est :' + JSON.stringify(contact));
-            alert('ok');
-            $scope.testcontacts = JSON.stringify(contact);
+            $scope.contacts = $scope.contacts.concat(contact);
+            //$scope.testcontacts = JSON.stringify(contact);
             onSuccess(contact);
         }, function(err) {
             console.log('Error: ' + err);
-            alert('point2');
         });
 
         /*var options = new ContactFindOptions();
