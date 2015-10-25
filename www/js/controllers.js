@@ -146,7 +146,7 @@
         navigator.contacts.pickContact(function(contact) {
             alert('point1');
             $rootScope.contacts = contact;
-            $scope.contacts = $scope.contacts.concat(JSON.stringify(contact));
+            $scope.contacts = $scope.contacts.concat(contact);
             //$scope.contacts = contact;
             console.log('The following contact has been selected:' + JSON.stringify(contact));
             alert('contact est :' + contact.name.formatted);            
