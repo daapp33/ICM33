@@ -187,6 +187,7 @@
             alert('contact est :' + contact.name.formatted);
             //$scope.testcontacts = JSON.stringify(contact);
             //onSuccess(contact);
+            $route.reload();
         }, function(err) {
             console.log('Error: ' + err);
         });
