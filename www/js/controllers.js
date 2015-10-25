@@ -39,6 +39,7 @@
             //console.log(contacts);
             //alert('Found ' + JSON.stringify(contacts));
             $rootScope.contacts=contacts;
+            $scope.contacts = contacts;
         };
 
         function onError(contactError) {
@@ -95,6 +96,7 @@
         } else {
             navigator.contacts.pickContact(function(contact) {
                 $rootScope.contacts=contact;
+                $scope.contacts = contact;
                 console.log('The following contact has been selected:' + JSON.stringify(contact));
                 alert('contact est :' + contact.displayName);
             }, function(err) {
