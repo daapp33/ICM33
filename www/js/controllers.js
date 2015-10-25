@@ -28,21 +28,19 @@
         localStorageService.set("adrList", $scope.adrList);
     }
 
-
 })
 
 .controller('ajoutContactCtrl', function($scope, $rootScope) {
     $scope.contacts = $rootScope.contacts;
     $scope.oktest = 'coucou';
     $scope.shouldShowDelete = true;
-    alert('test');
 
     $scope.onItemDelete = function(item) {
         $scope.contacts.splice($scope.contacts.indexOf(item), 1);
     };
     $scope.edit = function(item) {
-    alert('Edit Item: ' + item.id);
-  };
+        alert('Edit Item: ' + item.id);
+    };
 
     function onSuccess(contacts) {
         //console.log(contacts);
@@ -56,6 +54,7 @@
     };
 
     if (!navigator.contacts) {
+        alert('point5');
         contact = [{ // We will use it to save a contact
             "displayName": "Gajotres",
             "id": "203",
@@ -109,13 +108,16 @@
         }];
         onSuccess(contact);
     } else {
+        alert('point');
         navigator.contacts.pickContact(function(contact) {
+            alert('point1');
             $rootScope.contacts = contact;
             $scope.contacts = contact;
             console.log('The following contact has been selected:' + JSON.stringify(contact));
             alert('contact est :' + contact.displayName);
         }, function(err) {
             console.log('Error: ' + err);
+            alert('point2');
         });
 
         /*var options = new ContactFindOptions();
